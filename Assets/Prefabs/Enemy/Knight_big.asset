@@ -19,3 +19,4 @@ MonoBehaviour:
   hp: 100
   score: 100
   radius: 0.32
+  damage: 3

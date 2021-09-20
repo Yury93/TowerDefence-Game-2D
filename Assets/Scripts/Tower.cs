@@ -40,7 +40,6 @@ namespace TowerDeffense
 
                 if (enter)
                 {
-                    print($"Это кто то вошёл {enter}");
                     m_Target = enter.transform.root.GetComponent<Destructible>();
 
                 }

@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Knight_small
   m_EditorClassIdentifier: 
   color: {r: 1, g: 1, b: 1, a: 1}
-  scaleSprite: {x: 1.5, y: 1.5}
+  scaleSprite: {x: 2, y: 2}
   animations: {fileID: 9100000, guid: dc814d74b3ee3604f8b3fd209d715ec5, type: 2}
   moveSpeed: 1.2
   hp: 50
   score: 50
   radius: 0.32
+  damage: 3

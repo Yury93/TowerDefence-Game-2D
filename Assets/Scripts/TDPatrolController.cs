@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using SpaceShooter;
 
 
@@ -8,6 +9,7 @@ namespace TowerDeffense
     {
         private Path m_Path;
         private int m_PathIndex;
+        [SerializeField] private UnityEvent OnEndPath;
         internal void SetPath(Path newPath)
         {
             m_Path = newPath;
@@ -21,12 +23,11 @@ namespace TowerDeffense
             if (m_Path.Length > m_PathIndex)
             {
                 SetPatrolBehaviour(m_Path[m_PathIndex]);
-                print("»дЄм по точкам");
             }
             else
             {
+                OnEndPath.Invoke();
                 Destroy(gameObject);
-                print("¬раг дошЄл до последней точки");
             }
         }
     }

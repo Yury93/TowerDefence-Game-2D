@@ -59,13 +59,10 @@ namespace SpaceShooter
             if (m_Indestructible) return;
 
             m_CurrentHitPoints -= damage;
-            print(m_CurrentHitPoints);
 
             m_HitPoints = m_CurrentHitPoints;
             if (m_CurrentHitPoints <= 0)
             {
-
-                print(m_CurrentHitPoints);
                 OnDeath();
 
                 if (m_Partical == null) return;

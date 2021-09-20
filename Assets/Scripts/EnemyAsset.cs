@@ -15,6 +15,7 @@ namespace TowerDeffense
         public int hp = 1;
         public int score = 1;
         public float radius = 0.32f;
+        public int damage = 1;
     }
 }
 

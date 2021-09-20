@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,6 +27,16 @@ namespace SpaceShooter
                 Destroy(m_Ship.gameObject);
             }
         }
+
+        internal void TakeDamage(int m_Damage)
+        {
+            m_NumLives -= m_Damage;
+            if(m_NumLives<0)
+            {
+                LevelSequenceController.Instance.FinishCurrentLevel(false);
+            }
+        }
+
         void Start()
         {
             Respawn();
