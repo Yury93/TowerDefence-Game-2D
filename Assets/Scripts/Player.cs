@@ -2,12 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TowerDeffense;
 
 namespace SpaceShooter
 {
     public class Player : SingletonBase<Player>
     {
         [SerializeField] private int m_NumLives;
+        public int NumLives => m_NumLives;
 
         [SerializeField] private SpaceShip m_Ship;
         public SpaceShip ActiveShip => m_Ship;
@@ -28,7 +30,7 @@ namespace SpaceShooter
             }
         }
 
-        internal void TakeDamage(int m_Damage)
+        protected void TakeDamage(int m_Damage)
         {
             m_NumLives -= m_Damage;
             if(m_NumLives<0)
@@ -41,6 +43,7 @@ namespace SpaceShooter
         {
             Respawn();
             //Добавили метод в событие
+
             m_Ship.EventOnDeath.AddListener(OnShipDeath);
         }
 

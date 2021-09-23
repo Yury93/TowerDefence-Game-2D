@@ -82,14 +82,8 @@ namespace SpaceShooter
         /// </summary>
         protected virtual void OnDeath()
         {
-
-
             Destroy(gameObject);
-
-
-
             m_EventOnDeath?.Invoke();//Вызов события
-
         }
         /// <summary>
         /// списки(рид онли список,который можно прочитать но не задать) рид онли ссылается на хэш
@@ -109,7 +103,6 @@ namespace SpaceShooter
         protected virtual void OnDestroy()
         {
             m_AllDestructibles.Remove(this);
-
         }
         /// <summary>
         /// Создание команд(ID Команды)
@@ -118,8 +111,6 @@ namespace SpaceShooter
 
         [SerializeField] private int m_TeamId;
         public int TeamId => m_TeamId;
-
-
         /// <summary>
         /// событие
         /// </summary>

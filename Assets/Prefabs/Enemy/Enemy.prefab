@@ -80,7 +80,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6456114019668214915}
         m_TargetAssemblyTypeName: TowerDeffense.Enemy, Assembly-CSharp
-        m_MethodName: DamagePlayer
+        m_MethodName: GivePlayerGold
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -123,7 +123,19 @@ MonoBehaviour:
   m_EvadeRayLength: 0
   OnEndPath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6456114019668214915}
+        m_TargetAssemblyTypeName: TowerDeffense.Enemy, Assembly-CSharp
+        m_MethodName: DamagePlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6456114019668214915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Damage: 1
+  m_Gold: 1
 --- !u!1 &1998509294486987599
 GameObject:
   m_ObjectHideFlags: 0
