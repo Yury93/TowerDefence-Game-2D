@@ -35,7 +35,8 @@ namespace SpaceShooter
 
         public void RestartLevel()
         {
-            SceneManager.LoadScene(CurrentEpisode.Levels[CurrentLevel]);
+            //SceneManager.LoadScene(CurrentEpisode.Levels[CurrentLevel]);
+            SceneManager.LoadScene(0);
         }
 
         public void FinishCurrentLevel(bool success)
@@ -50,7 +51,6 @@ namespace SpaceShooter
 
         public void AdvanceLevel()
         {
-            //levelStatistics.Reset();
             CurrentLevel++;
 
             if (CurrentEpisode.Levels.Length <= CurrentLevel)
@@ -62,9 +62,6 @@ namespace SpaceShooter
                 SceneManager.LoadScene(CurrentEpisode.Levels[CurrentLevel]);
             }
         }
-        /// <summary>
-        /// Метод считает статистику
-        /// </summary>
         private void CalculateLevelStatisctic()
         {
             levelStatistics.score = Player.Instance.Score;

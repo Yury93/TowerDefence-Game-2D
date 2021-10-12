@@ -19,15 +19,25 @@ namespace TowerDeffense
         }
         protected override void GetNewPoint()
         {
-            m_PathIndex += 1;
-            if (m_Path.Length > m_PathIndex)
+            if (gameObject.GetComponent<Hero>())
             {
-                SetPatrolBehaviour(m_Path[m_PathIndex]);
+                gameObject.GetComponent<Rigidbody2D>().freezeRotation = true;
+                gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                gameObject.GetComponent<TDPatrolController>().SpeedShip(0);
+                gameObject.GetComponentInChildren<Animator>().SetBool("point", true);
             }
-            else
+            if (!gameObject.GetComponent<Hero>())
             {
-                OnEndPath.Invoke();
-                Destroy(gameObject);
+                m_PathIndex += 1;
+                if (m_Path.Length > m_PathIndex)
+                {
+                    SetPatrolBehaviour(m_Path[m_PathIndex]);
+                }
+                else
+                {
+                    OnEndPath.Invoke();
+                    Destroy(gameObject);
+                }
             }
         }
     }

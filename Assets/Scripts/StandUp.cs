@@ -24,7 +24,7 @@ namespace TowerDeffense
             {
                 m_Sr.flipX = false;
             }
-            else if(xMotion< 0.01f)
+            else if(xMotion< 0.01f && !gameObject.GetComponentInParent<Hero>())
             {
                 m_Sr.flipX = true;
             }

@@ -98,8 +98,14 @@ namespace SpaceShooter
         }
 
         #endregion
-
-
+        public void SetPatrolPoint(AIPointPatrol p)
+        {
+            m_PatrolPoint = p;
+        }
+        public void SpeedShip(float speed)
+        {
+            m_NavigationLinear = speed;
+        }
         /// <summary>
         /// Метод обновления логики AI.
         /// </summary>
@@ -134,9 +140,10 @@ namespace SpaceShooter
         private void ActionControlShip()
         {
             m_SpaceShip.ThrustControl = m_NavigationLinear;
+            
             m_SpaceShip.TorqueControl = ComputeAlignTorqueNormalized(m_MovePosition, transform) * m_NavigationAngular;
         }
-
+       
         private const float MaxAngle = 45.0f;
 
         /// <summary>
@@ -209,7 +216,6 @@ namespace SpaceShooter
             {
                 Vector2 newPoint = UnityEngine.Random.onUnitSphere * m_PatrolPoint.Radius + m_PatrolPoint.transform.position;
                 m_MovePosition = newPoint;
-
 
                 SetActionTimer(ActionTimerType.RandomizeDirection, m_RandomSelectMovePointTime);
             }

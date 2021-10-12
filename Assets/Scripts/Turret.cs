@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TowerDeffense;
 
 namespace SpaceShooter
 {
@@ -11,8 +12,7 @@ namespace SpaceShooter
         public TurretMode Mode => m_Mode;
 
         [SerializeField] private TurretProperties m_TurretProperties;
-
-
+        
         private float m_RefireTimer;
 
         public bool CanFire => m_RefireTimer <= 0;
@@ -25,7 +25,6 @@ namespace SpaceShooter
             m_Ship = transform.root.GetComponent<SpaceShip>(); // - transform.root - SpaceShip  на главном объкте
         }
 
-
         void Update()
         {
             if (m_RefireTimer > 0)
@@ -37,6 +36,8 @@ namespace SpaceShooter
                 Fire();
             }
         }
+
+       
         #endregion
         //Public API 
         public void Fire()
@@ -60,16 +61,24 @@ namespace SpaceShooter
             projectile.transform.position = transform.position;
             projectile.transform.up = transform.up;
             projectile.SetParentShooter(m_Ship);
-
             m_RefireTimer = m_TurretProperties.RateOfFire;
 
         }
+       
         public void AssignLoadOut(TurretProperties props)//Power up for turrel.
         {
             if (m_Mode != props.Mode) return;
 
             m_RefireTimer = 0;
             m_TurretProperties = props;
+        }
+        /// <summary>
+        /// Создание нового проджектайла для  TowerAsset
+        /// </summary>
+        /// <param new projectile for TowerAsset="turretProperties"></param>
+        public void CreateOtherProjectile(TurretProperties turretProperties)
+        {
+             m_TurretProperties = turretProperties;
         }
 
     }

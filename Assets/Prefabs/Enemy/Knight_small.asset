@@ -20,4 +20,4 @@ MonoBehaviour:
   score: 50
   radius: 0.32
   damage: 1
-  gold: 50
+  gold: 2

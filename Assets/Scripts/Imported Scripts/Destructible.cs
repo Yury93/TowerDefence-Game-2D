@@ -129,8 +129,7 @@ namespace SpaceShooter
         {
             m_Indestructible = destrOrNoDestr;
         }
-
-
+       
         #region Score
 
         [SerializeField] private int m_ScoreValue;

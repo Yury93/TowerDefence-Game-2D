@@ -20,7 +20,6 @@ namespace SpaceShooter
             var e = Instantiate(m_EnemyPrefabs);
             e.Use(m_EnemyAsset[Random.Range(0, m_EnemyAsset.Length)]);
             e.GetComponent<TDPatrolController>().SetPath(m_Path);
-
             return e.gameObject;
         }
     }

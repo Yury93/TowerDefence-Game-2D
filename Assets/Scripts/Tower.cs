@@ -16,7 +16,7 @@ namespace TowerDeffense
         }
         private void Update()
         {
-            if (m_Target)
+            if (m_Target && !m_Target.GetComponentInParent<Hero>())
             {
                 Vector2 targetVector = m_Target.transform.position - transform.position;
                 if (targetVector.magnitude <= m_Radius)
