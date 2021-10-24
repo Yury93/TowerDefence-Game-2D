@@ -10,11 +10,11 @@ namespace SpaceShooter
     {
         [SerializeField] private int m_NumLives;
         public int NumLives => m_NumLives;
-
         [SerializeField] private SpaceShip m_Ship;
         public SpaceShip ActiveShip => m_Ship;
-
         [SerializeField] private GameObject m_PlayerShipPrefab;
+
+        public event Action OnPlayerDead;
 
         protected override void Awake()
         {
@@ -31,8 +31,8 @@ namespace SpaceShooter
             m_NumLives -= m_Damage;
             if(m_NumLives<0)
             {
-                //LevelSequenceController.Instance.FinishCurrentLevel(false);
-                LevelSequenceController.Instance.RestartLevel();
+                m_NumLives = 0;
+                OnPlayerDead?.Invoke();
             }
         }
 

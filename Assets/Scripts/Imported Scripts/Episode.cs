@@ -1,9 +1,6 @@
 using UnityEngine;
 
-
-namespace SpaceShooter
-{
-    [CreateAssetMenu(fileName = "Episode", menuName = "Menu game/Episodes")]
+[CreateAssetMenu(fileName = "Episode", menuName = "Menu game/Episodes")]
     public class Episode : ScriptableObject
     {
         [SerializeField] private string m_EpisodeName;
@@ -17,4 +14,4 @@ namespace SpaceShooter
         [SerializeField] private Sprite m_PreviewImage;
         public Sprite PreviewImage => m_PreviewImage;
     }
-}
+

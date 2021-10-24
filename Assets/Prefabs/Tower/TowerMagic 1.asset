@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7fca001a4ab98e48917720d837bd261, type: 3}
-  m_Name: TowerMagic
+  m_Name: TowerMagic 1
   m_EditorClassIdentifier: 
-  m_GoldCost: 1
-  m_SpriteGUI: {fileID: 21300000, guid: 5ed743dc7809a3741a030b9a858ae422, type: 3}
-  m_Sprite: {fileID: 21300000, guid: 09143938c6ccdce4a8a2d811556bd038, type: 3}
-  turretProperties: {fileID: 11400000, guid: 9a686a11ac2f65b4f805f4447ba384dd, type: 2}
+  m_GoldCost: 7
+  m_SpriteGUI: {fileID: 21300000, guid: c6d546e9100c7204cb86bd24854671f6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 298636722737c4b41816506cd4bc994f, type: 3}
+  turretProperties: {fileID: 11400000, guid: a4a3d94d8f59ce342ba1ccffb5c4efd9, type: 2}
