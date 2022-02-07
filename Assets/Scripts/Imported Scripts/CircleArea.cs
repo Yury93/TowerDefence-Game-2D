@@ -27,7 +27,5 @@ public class CircleArea : MonoBehaviour
         Handles.DrawSolidDisc(transform.position, transform.forward, m_Radius);
 
     }
-
-
 #endif
 }

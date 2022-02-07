@@ -16,7 +16,6 @@ namespace TowerDeffense
         { 
             m_BuildSite = value; 
         }
-
         
         private void Start()
         {
@@ -27,6 +26,7 @@ namespace TowerDeffense
         private void OnDestroy()
         {
             TDPlayer.OnGoldUpdate -= GoldStatusCheck;
+
         }
         private void GoldStatusCheck(int gold)
         {

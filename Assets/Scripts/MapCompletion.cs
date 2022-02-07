@@ -8,6 +8,11 @@ namespace TowerDeffense
 {
     public class MapCompletion : SingletonBase<MapCompletion>
     {
+        public const string fileName = "completion.dat";
+        //public static void ResetSavedData()
+        //{
+        //    FileHandler.Reset(fileName);
+        //}
         [Serializable]
         public class EpisodeScore
         {
@@ -17,7 +22,15 @@ namespace TowerDeffense
 
         public static void SaveEpisodeResult(int levelScore)
         {
-            Instance.SaveResult(LevelSequenceController.Instance.CurrentEpisode, levelScore);
+            if (Instance)
+            {
+                Instance.SaveResult(LevelSequenceController.Instance.CurrentEpisode, levelScore);
+                Debug.Log($"Episode complete with score: {levelScore}");
+            }
+            else
+            {
+                Debug.Log($"Episode complete with score: {levelScore}");
+            }
         }
 
         [SerializeField] private EpisodeScore[] completionData;
@@ -33,6 +46,11 @@ namespace TowerDeffense
             score = 0;
             return false;
         }
+        private new void Awake()
+        {
+            base.Awake();
+            Saver<EpisodeScore[]>.TryLoad(fileName, ref completionData);
+        }
         private void SaveResult(Episode currentEpisode,  int levelScore)
         {
             foreach( var item in completionData)
@@ -42,6 +60,7 @@ namespace TowerDeffense
                     if (item.score < levelScore)
                     {
                         item.score = levelScore;
+                        Saver<EpisodeScore[]>.Save(fileName,completionData);
                     }
                 }
             }

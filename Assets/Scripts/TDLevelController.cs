@@ -4,20 +4,32 @@ using SpaceShooter;
 
 namespace TowerDeffense
 {
-
     public class TDLevelController : LevelController
     {
-        public int levelScore => 1;
+        private int levelScore = 3;
         private new void Start()
         {
             base.Start();
             TDPlayer.Instance.OnPlayerDead += EndLevel;
+
+            m_ReferenceTime += Time.deltaTime;
             m_EventLevelCompleted.AddListener(
                 () =>
                 {
                     StopLevelActivity();
+                    if(m_ReferenceTime <= Time.time)
+                    {
+                        levelScore -= 1;
+                    }
+                    Debug.Log($"Score: {levelScore}") ;
                     MapCompletion.SaveEpisodeResult(levelScore);
                 });
+            void LifeScoreChange(int _)
+            {
+                levelScore -= 1;
+                TDPlayer.OnLifeUpdate -= LifeScoreChange;
+            }
+            TDPlayer.OnLifeUpdate += LifeScoreChange;
         }
         private void EndLevel()
         {
@@ -43,6 +55,7 @@ namespace TowerDeffense
             DisableAll<Spawner>();
             DisableAll<Projectile>();
             DisableAll<Tower>();
+            DisableAll<NextWaveGUI>();
         }
     }
 }

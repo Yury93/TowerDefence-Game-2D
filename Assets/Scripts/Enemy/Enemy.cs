@@ -1,5 +1,6 @@
 using UnityEngine;
 using SpaceShooter;
+using System;
 
 namespace TowerDeffense
 {
@@ -7,6 +8,13 @@ namespace TowerDeffense
     {
         [SerializeField] private int m_Damage = 1;
         [SerializeField] private int m_Gold = 1;
+
+        public event Action OnEnd;
+        private void OnDestroy()
+        {
+            OnEnd?.Invoke();
+        }
+
         public void Use(EnemyAsset asset)
         {
             var sr = transform.Find("Sprite").GetComponent<SpriteRenderer>();
